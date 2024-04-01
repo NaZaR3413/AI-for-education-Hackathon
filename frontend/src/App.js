@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import "./styles.scss";
+import CustomNav from "./navbar-components/navbar.js";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CustomNav
+      li={[
+        ["Dashboard", "img/dashboard.svg"],
+        ["Restautant’s", "img/restaurant.svg"],
+        ["Manage User’s", "img/manage user.svg"],
+        ["Manage Order’s", "img/manage  order.svg"],
+        ["Manage Coupon’s", "img/manage coupon.svg"]
+      ]}
+    />
   );
 }
-
-export default App;
