@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles.scss";
 import CustomNav from "./navbar-components/navbar.js";
+import Home from "./pages/home.js"
+
 export default function App() {
   return (
     <CustomNav
