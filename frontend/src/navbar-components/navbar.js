@@ -21,10 +21,11 @@ const CustomNav = ({ li }) => {
         {li.map((item, index) => (
           <div className="navbar__li-box" key={index}>
             <Link to={item[2] || "/"} style={{ display: "flex", alignItems: "center" }}>
-              <img viewBox="0 0 41 28" width="41" height="28"
+              <img  width="35" height="28"
                 src={item[1]}
                 alt={item[0]}
-                style={{ paddingLeft: window === false ? 27 : 17 }}
+                // style attribute blow is used to adjust the img size for the open and closed window as needed.
+                // style={{ paddingLeft: window === false ? 0 : 0 }}
               />
               <li
                 className="navbar__li"
