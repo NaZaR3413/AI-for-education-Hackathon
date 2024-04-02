@@ -13,13 +13,14 @@ export default function App() {
           li={[
             ["Home", "img/home.png", "/home"],
             ["Results", "img/home.png", "/results"],
-            // Update other items as necessary, ensuring you provide the correct paths
+            // update roots as needed
           ]}
         />
         <Routes>
+          {/*initial path set to home. /home also set in case someone navigates away, then back to home */}
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/results" element={<Results />} />
-          {/* Define other routes here */}
         </Routes>
       </Router>
     </div>
