@@ -1,0 +1,7 @@
+
+.results-container {
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center; 
+    text-align: center; 
+}
