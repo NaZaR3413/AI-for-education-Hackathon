@@ -65,8 +65,8 @@ class Pdf extends Component {
 				<div>
 					<br />
 					<h4>
-						Choose before Pressing the Upload
-						button
+						Choose a file before Pressing the Upload
+						button Please
 					</h4>
 				</div>
 			);
