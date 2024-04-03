@@ -5,6 +5,7 @@ import Pdf from "./home-files/pdf-upload";
 
 export default function Home() {
     return (
+        // container for the whole of the home page 
         <div className="home-page-container">
             {/** heading display */}
             <div className="home-container">
