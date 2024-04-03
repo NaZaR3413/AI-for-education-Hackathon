@@ -5,7 +5,7 @@ import Pdf from "./home-files/pdf-upload";
 
 export default function Home() {
     return (
-        <div className="home-container">
+        <div className="home-page-container">
             {/** heading display */}
             <div className="home-container">
                 <h1>Home</h1>
@@ -16,4 +16,4 @@ export default function Home() {
             </div>
         </div>
     );
-  }
+}
