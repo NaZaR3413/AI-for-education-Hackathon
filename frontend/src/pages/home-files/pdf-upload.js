@@ -1,45 +1,57 @@
-// Filename - pdf-upload.js. 
-
 import axios from "axios";
 import React, { Component } from "react";
 
 class Pdf extends Component {
-	state = {
-		// Initially, no file is selected
-		selectedFile: null,
-	};
+  state = {
+    selectedFile: null,
+    textInput: '', // Added state for the text input
+    isFormValid: false, // Added state to track if the form is valid for submission
+  };
 
-	// On file select (from the pop up)
-	onFileChange = (event) => {
-		// Update the state
-		this.setState({
-			selectedFile: event.target.files[0],
-		});
-	};
+  onFileChange = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0],
+    }, this.validateForm);
+  };
 
-	// On file upload (click the upload button)
-	onFileUpload = () => {
-		// Create an object of formData
-		const formData = new FormData();
+  onTextInputChange = (event) => {
+    this.setState({
+      textInput: event.target.value,
+    }, this.validateForm);
+  };
 
-		// Update the formData object
-		formData.append(
-			"myFile",
-			this.state.selectedFile,
-			this.state.selectedFile.name
-		);
+  // Function to validate the form
+  validateForm = () => {
+    const { selectedFile, textInput } = this.state;
+    this.setState({
+      isFormValid: selectedFile !== null && textInput.trim() !== ''
+    });
+  };
 
-		// Details of the uploaded file
-		console.log(this.state.selectedFile);
+  onFileUpload = () => {
+    const formData = new FormData();
+    formData.append(
+      "myFile",
+      this.state.selectedFile,
+      this.state.selectedFile.name
+    );
 
-		// Request made to the backend api
-		// Send formData object
-		axios.post("api/uploadfile", formData);
-	};
+    // Append text input to the formData if you want to send them together
+    formData.append("textInput", this.state.textInput);
 
-	// File content to be displayed after
+    // You can use a single API endpoint that handles both file and text input
+    axios.post("api/upload", formData)
+      .then(response => {
+        console.log("File and text input uploaded successfully");
+      })
+      .catch(error => {
+        console.error("Error uploading file and text input:", error);
+      });
+  };
+
+// File content to be displayed after
 	// file upload is complete
-	fileData = () => {
+    fileData = () => {
 		if (this.state.selectedFile) {
 			return (
 				<div>
@@ -65,31 +77,36 @@ class Pdf extends Component {
 				<div>
 					<br />
 					<h4>
-						Choose a file before Pressing the Upload
+						Choose a file and enter a job description before Pressing the Upload
 						button Please
 					</h4>
 				</div>
 			);
 		}
-	};
+	};  
 
-	render() {
-		return (
-			<div>
-				<h3>Please upload your resume as a PDF!</h3>
-				<div>
-					<input
-						type="file"
-						onChange={this.onFileChange}
-					/>
-					<button onClick={this.onFileUpload}>
-						Upload!
-					</button>
-				</div>
-				{this.fileData()}
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <h3>Please upload your resume as a PDF and copy/paste your target job description!</h3>
+        <div>
+            <input type="file" onChange={this.onFileChange} accept="application/pdf"/>
+            <button onClick={this.onFileUpload} disabled={!this.state.isFormValid}>
+                Upload!
+            </button>
+        </div>
+        <div>
+          <textarea
+            placeholder="Enter the job description here..."
+            onChange={this.onTextInputChange}
+            rows="5" // You can set the number of rows to increase its height
+            cols="33" // You can set the number of columns to increase its width
+          ></textarea>
+        </div>
+        {this.fileData()}
+      </div>
+    );
+  }
 }
 
 export default Pdf;
