@@ -1,9 +1,19 @@
 import "./home.css";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Pdf from "./home-files/pdf-upload";
 
 export default function Home() {
     return (
         <div className="home-container">
-            <h1>Home</h1>
+            {/** heading display */}
+            <div className="home-container">
+                <h1>Home</h1>
+            </div>
+            {/**pdf container */}
+            <div className="pdf-container">
+                <Pdf />
+            </div>
         </div>
     );
   }
