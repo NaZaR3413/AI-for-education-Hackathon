@@ -9,6 +9,7 @@ export default function App() {
   return (
     <div className="app-container">
       <Router>
+        {/**list to contain all of the navbar names, images and route locations */}
         <CustomNav
           li={[
             ["Home", "img/home.png", "/home"],
