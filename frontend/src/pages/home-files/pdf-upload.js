@@ -40,12 +40,15 @@ class Pdf extends Component {
     formData.append("textInput", this.state.textInput);
 
     // single API endpoint that handles both file and text input
-    axios.post("api/upload", formData)
+    axios.post("http://localhost:5000/api/upload", formData)
       .then(response => {
         console.log("File and text input uploaded successfully");
+        alert("file and text input uploaded");
       })
       .catch(error => {
         console.error("Error uploading file and text input:", error);
+        alert("nope, did not work");
+        alert(error);
       });
   };
 
