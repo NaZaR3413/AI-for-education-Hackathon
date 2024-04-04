@@ -76,10 +76,10 @@ class Pdf extends Component {
 			return (
 				<div>
 					<br />
-					<h4>
-						Choose a file and enter a job description before Pressing the Upload
-						button Please
-					</h4>
+					<h5>
+						Please choose a file and enter a job description before Pressing the Upload
+						button 
+					</h5>
 				</div>
 			);
 		}
@@ -95,15 +95,15 @@ class Pdf extends Component {
                 Upload!
             </button>
         </div>
-        <div>
+        <div className="job-description-container">
+          {this.fileData()}
           <textarea
             placeholder="Enter the job description here..."
             onChange={this.onTextInputChange}
-            rows="5" // You can set the number of rows to increase its height
-            cols="33" // You can set the number of columns to increase its width
+            rows="5" // adjust as needed to increase height
+            cols="40" // adjust as needed to increase width
           ></textarea>
         </div>
-        {this.fileData()}
       </div>
     );
   }
