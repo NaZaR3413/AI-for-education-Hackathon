@@ -90,6 +90,7 @@ class Pdf extends Component {
       <div>
         <h3>Please upload your resume as a PDF and copy/paste your target job description!</h3>
         <div>
+            {/**only accept pdfs */}
             <input type="file" onChange={this.onFileChange} accept="application/pdf"/>
             <button onClick={this.onFileUpload} disabled={!this.state.isFormValid}>
                 Upload!

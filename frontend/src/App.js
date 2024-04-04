@@ -13,7 +13,7 @@ export default function App() {
         <CustomNav
           li={[
             ["Home", "img/home.png", "/home"],
-            ["Results", "img/home.png", "/results"],
+            ["Results", "img/results.png", "/results"],
             // update roots as needed
           ]}
         />
