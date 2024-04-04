@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CustomNav = ({ li }) => {
   // default window to closed 
-  const [window, setWindow] = useState(false);
+  const [window, setWindow] = useState(true);
 
   // open the window if proper section is clicked, keep closed otherwise 
   let openClose = () => {
