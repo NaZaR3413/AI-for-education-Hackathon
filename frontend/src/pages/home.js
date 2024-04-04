@@ -1,4 +1,4 @@
-import "./home.css";
+import "./home-files/home.css";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Pdf from "./home-files/pdf-upload";
