@@ -24,7 +24,7 @@ import { Radar, RadarChart, PolarGrid,
                         outerRadius="80%" data={data}>
                         <PolarGrid />
                         <PolarAngleAxis dataKey="name" />
-                        <PolarRadiusAxis />
+                        <PolarRadiusAxis angle={0} domain={[0, 100]} tick={{ fill: 'black'}} />
                         <Radar dataKey="x" stroke="green"
                         fill="green" fillOpacity={0.5} />
                     </RadarChart>
