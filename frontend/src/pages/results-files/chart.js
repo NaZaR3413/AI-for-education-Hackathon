@@ -5,26 +5,32 @@ import { Radar, RadarChart, PolarGrid,
  
         // Sample data
         const data = [
-            { name: 'A', x: 21 },
-            { name: 'B', x: 22 },
-            { name: 'C', x: -32 },
-            { name: 'D', x: -14 },
-            { name: 'E', x: -51 },
-            { name: 'F', x: 16 },
-            { name: 'G', x: 7 },
-            { name: 'H', x: -8 },
-            { name: 'I', x: 9 },
+            { name: 'Overall Skills', x: 4 * 20},
+            { name: 'Action Keywords', x: 77 },
+            { name: 'Impact Keywords', x: 70 },
+            { name: 'Job Match', x: 69 },
         ];
      
         return (
-            <RadarChart height={500} width={500} 
-                outerRadius="80%" data={data}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="name" />
-                <PolarRadiusAxis />
-                <Radar dataKey="x" stroke="green"
-                    fill="green" fillOpacity={0.5} />
-            </RadarChart>
+            <div>
+                <div className='radar-text'>
+                    {/**text representation */}
+                    <p>
+                        text for radar chart
+                    </p>
+                </div>
+                <div>
+                    <RadarChart height={300} width={500} 
+                        outerRadius="80%" data={data}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="name" />
+                        <PolarRadiusAxis />
+                        <Radar dataKey="x" stroke="green"
+                        fill="green" fillOpacity={0.5} />
+                    </RadarChart>
+                </div>
+                
+            </div>
         );
     }
      
