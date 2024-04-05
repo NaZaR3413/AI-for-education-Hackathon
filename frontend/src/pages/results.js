@@ -14,10 +14,6 @@ export default function Results() {
                     <Chart />
                 </div>
             </div>
-
-            <div className="bottom-half">
-
-            </div>
         </div>
     );
   }
