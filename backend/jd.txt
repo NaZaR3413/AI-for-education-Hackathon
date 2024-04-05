@@ -1,0 +1,26 @@
+About the job
+Job Summary:
+
+Our client is seeking a Web/Mobile Developer to join their team in Tulsa, Oklahoma! This role is responsible for designing, coding, and modifying websites and mobile applications, from layout to function and according to the client's specifications. The selected candidate will strive to create visually appealing sites that feature user-friendly design and clear navigation.
+
+
+Duties:
+
+Interact regularly with business stakeholders and management
+Possess strong understanding of UI, cross-browser compatibility, and general web functions and standards
+Plan and deliver software platforms used across multiple products and organizational units
+Work with web development technologies and Single Page Application frameworks
+Develop Mobile Apps and Web APIs using NodeJS
+Practice Continuous Integration and Continuous Deployment when configuring build order and releases
+Implement test-driven development as a daily practice
+Remain up to date with the terminology, concepts, and best practices for coding
+Work as part of a team or individually on a project
+Participate in Agile Ceremonies
+
+
+Desired Skills/Experience:
+
+Master’s Degree in Computer Science or equivalent training required
+5+ years of relevant experience required
+Knowledge and experience will skills such as: JavaScript, Typescript, Angular 2, HTML, CSS, Web Programming, NodeJS, Swift, AKS, NoSQL Database/MongoDB, cross-browser compatibility, Web User Interface Design, Object-Oriented Design, API's, Bootstrap, Monitoring Tools, Graph QL, and Automated Testing
+Excellent communication skills
