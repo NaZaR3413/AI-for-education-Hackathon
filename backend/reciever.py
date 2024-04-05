@@ -14,6 +14,7 @@ def upload_file_and_text():
     
     if(file):
         print("recieved file " + file.filename) # verify pdf file was recieved
+        # temporary change
     
     
     # Optional: Save the file to your server. file was already verified to be a pdf on the frontend
