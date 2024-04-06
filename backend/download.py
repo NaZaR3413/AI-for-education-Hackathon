@@ -8,7 +8,7 @@ reference = str(reference_num)
 url = "https://api.hrflow.ai/v1/profile/parsing/file"
 pdf_file_path = "/Users/quadr/Documents/Shibi/S3Bucket/Jacob-Hakopian.pdf"
 payload = {'source_key': 'f5be79cba2be5a230eaa867185f946302d8ec528',
-'reference': reference,
+'reference': "1e469860",
 'sync_parsing': '0',
 'sync_parsing_indexing': '1'}
 
@@ -25,9 +25,9 @@ response = requests.request("POST", url, headers=headers, data=payload, files=fi
 
 
 
-#print(response.text)
+print(response.text)
 time.sleep(5)
-url = "https://api.hrflow.ai/v1/profile/parsing?source_key=f5be79cba2be5a230eaa867185f946302d8ec528&reference=" + reference
+url = "https://api.hrflow.ai/v1/profile/parsing?source_key=f5be79cba2be5a230eaa867185f946302d8ec528&reference=" + "1e469860"
 
 payload = {}
 headers = {
@@ -42,5 +42,5 @@ parsed_data = response.json().get('data')
     # Print the 'data' subfield
 #print(parsed_data)
 #json_document = json.loads(response.text)
-#print(response.text)
+print(response.text)
 
