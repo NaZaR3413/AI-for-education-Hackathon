@@ -193,4 +193,5 @@ def query():
 
     return [skill_score, action_score, impact_score, jr_score, js_score]
 
+scores_calc = query()
 print(query())

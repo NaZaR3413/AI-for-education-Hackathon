@@ -2,6 +2,7 @@ import requests
 import time
 import random
 import json
+from reciever import file
 reference_num = random.randint(1, 100000)
 reference = str(reference_num)
 url = "https://api.hrflow.ai/v1/profile/parsing/file"
@@ -16,9 +17,10 @@ headers = {
   'X-API-KEY': 'ask_e8f97e9583b6246cc158a35f57b725df',
   'Cookie': 'AWSALB=XKZOvKL7MAvlncALShpG1CFPyva9RXzq//+WUEerYqRqUJ/5phBP5j57TemmLVmH82tIfDmMeGKFhSQ+gOd7EITyO8IYRmxzDhawt26F5Fgw6k7JWAbXJBt5xK7B; AWSALBCORS=XKZOvKL7MAvlncALShpG1CFPyva9RXzq//+WUEerYqRqUJ/5phBP5j57TemmLVmH82tIfDmMeGKFhSQ+gOd7EITyO8IYRmxzDhawt26F5Fgw6k7JWAbXJBt5xK7B'
 }
-with open(pdf_file_path, 'rb') as file:
-    files = [('file', ('resume.pdf', file, 'application/pdf'))]
-    response = requests.request("POST", url, headers=headers, data=payload, files=files)
+#with open(pdf_file_path, 'rb') as file:
+    #files = [('file', ('resume.pdf', file, 'application/pdf'))]
+files = file  
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
     
 
 
