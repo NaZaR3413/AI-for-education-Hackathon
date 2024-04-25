@@ -6,10 +6,10 @@ function Chart() {
     const [numbers, setNumbers] = useState([]); // State to store the list of numbers
 
     useEffect(() => {
-        axios.get('http://localhost:5000/data') // Adjust the URL/port as needed
+        axios.get('http://localhost:5001/data') // Adjust the URL/port as needed
             .then(response => {
                 setNumbers(response.data); // Set the fetched numbers to state
-            })
+;            })
             .catch(error => {
                 console.error('There was an error fetching the data:', error);
             });
@@ -26,7 +26,7 @@ function Chart() {
 
     return (
         <div>
-            <p>Data from Flask: {numbers}</p> {/* Display the message from Flask */}
+            {/* Display the message from Flask <p>Data from Flask: {numbers}</p> */}
             <div>
                 <RadarChart height={400} width={600} 
                     outerRadius="80%" data={data}>
