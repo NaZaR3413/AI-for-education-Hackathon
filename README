@@ -2,6 +2,9 @@ Problem: Helping undergraduate CS students identify their strengths, weaknesses 
 
 Solution: A trained AI model that reads in the user’s resume and target job description, where our program will parse through both and compare the uploaded resume against similar resumes in our database and show the results to the user, helping them identify different strengths and weaknesses. Users can take advantage of their findings in terms of their weaknesses in order to better plan future education paths in order to help strengthen these weaknesses.
 
+NOTE:
+Our OPENAI API key has been removed from this public file, insert your own API key into line 23 in the sender.py file, right in the indicated "" section, for everything to work properly.
+
 Compile info: 3 terminals will be needed to run and compile this program. The first will be used to launch our frontend react app: make sure you are in the proper directory (frontend), then “npm start”. The next 2 terminals will be used to keep servers running between the front and backend, make sure you are in the correct directory (backend). In the second terminal, “python receiver.py”, and in the third terminal “python sender.py”.  Make sure all the names are spelled correctly, as all these terminals working together will be needed in order to ensure the application works correctly. In summary:
 Terminal 1: npm start
 Terminal 2: python receiver.py
