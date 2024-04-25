@@ -6,7 +6,7 @@ function Chart() {
     const [numbers, setNumbers] = useState([]); // State to store the list of numbers
 
     useEffect(() => {
-        axios.get('http://localhost:5000/data') // Adjust the URL/port as needed
+        axios.get('http://localhost:5001/data') // Adjust the URL/port as needed
             .then(response => {
                 setNumbers(response.data); // Set the fetched numbers to state
             })
