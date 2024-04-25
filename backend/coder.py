@@ -7,8 +7,12 @@ import numpy as np
 from numpy import dot
 from numpy.linalg import norm
 import tiktoken
-from download import parsed_data
-
+import reciever
+from flask import Flask, jsonify
+from flask_cors import CORS
+#from coder import query
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all domains
 load_dotenv()
 
 #key = os.getenv("API_KEYH")
@@ -16,7 +20,7 @@ load_dotenv()
 skills_collection = Collection(collection_name="skills",dimension=1536)
 text_collection = Collection(collection_name="text", dimension=1536)
 exp_collection = Collection(collection_name="experience", dimension=1536)
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="")
 
 with open("./hrflow-profiles (1).json","r", encoding="utf8") as j:
     data = json.loads(j.read())
@@ -68,6 +72,7 @@ embeddings = client.embeddings.create(input=exps+skills+text, model="text-embedd
 embeddings = [np.array(embed.embedding) for embed in embeddings.data]
 text_collection.search(embeddings[-1], k=5)
 
+@app.route('/data', methods=['GET'])
 def query():
     with open("jd.txt", "r") as f:
         jd = f.read()
@@ -198,7 +203,9 @@ def query():
     action_score = (cosine(ai_embeddings[0], ai_embeddings[1])+1)*50
     impact_score = (cosine(ai_embeddings[2], ai_embeddings[3])+1)*50
     scores_calc = [skill_score, action_score, impact_score, jr_score, js_score]
-    return [skill_score, action_score, impact_score, jr_score, js_score]
 
+    return [skill_score, action_score, impact_score, jr_score, js_score]
+    
 
 print(query())
+app.run(debug=True, port=5001)
