@@ -19,7 +19,7 @@ def upload_file_and_text():
     
     # Optional: Save the file to your server. file was already verified to be a pdf on the frontend
     filename = file.filename
-    save_path = os.path.join("C:\\Users\\nilay\\Downloads", filename)
+    save_path = os.path.join("C:\\Users\\nilay\\Downloads\\Side Projects\\AI-for-education-Hackathon\\backend", filename)
     #os.makedirs(os.path.dirname(save_path), exist_ok=True)
     file.save(save_path)
     
