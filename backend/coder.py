@@ -16,7 +16,7 @@ load_dotenv()
 skills_collection = Collection(collection_name="skills",dimension=1536)
 text_collection = Collection(collection_name="text", dimension=1536)
 exp_collection = Collection(collection_name="experience", dimension=1536)
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="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")
 
 with open("./hrflow-profiles (1).json","r", encoding="utf8") as j:
     data = json.loads(j.read())
@@ -84,7 +84,10 @@ def query():
 
     print(res.choices[0].message.content)
 
-    et = "d="+res.choices[0].message.content
+    k_choice = res.choices[0].message.content
+    #hr = k_choice.sprie
+    k_choice = k_choice.strip("python")
+    et = "d="+k_choice
 
     exec(et, globals())
 
@@ -114,10 +117,10 @@ def query():
     r = int(list({k:v for k,v in sorted(sd.items(), key=lambda i:i[1], reverse=True)}.keys())[0])
     print(r)
 
-    #with open("./test_resume.json","r", encoding="utf8") as j:
-     #   test_data = json.loads(j.read())
-    test_data = parsed_data
-
+    with open("./extracted_data.json","r", encoding="utf8") as j:
+        test_data = json.loads(j.read())
+    #test_data = parsed_data
+    print(test_data.keys())
     candidate_resume = test_data
     success_resume = data[r]["text"]
 
@@ -149,7 +152,7 @@ def query():
     exec(et, globals())
 
     sskills = [i["name"].lower() for i in data[r]["skills"]]
-    cskills = [i["name"].lower() for i in test_data["skills"]]
+    cskills = [i["name"].lower() for i in test_data["profile"]["skills"]]
     jd_skills = [i.lower() for i in d["skills_required"]]
     sact = [i.lower() for i in resd["resume2_action_keywords"]]
     cact = [i.lower() for i in resd["resume1_action_keywords"]]
@@ -177,7 +180,7 @@ def query():
     ai_embeddings = [np.array(i.embedding) for i in ai_embeddings.data]
 
     cembeddings = []
-    cembed = client.embeddings.create(input=[i["description"] for i in test_data["experiences"]], model="text-embedding-3-small")
+    cembed = client.embeddings.create(input=[i["description"] for i in test_data["profile"]["experiences"]], model="text-embedding-3-small")
     cembeddings = [np.array(i.embedding) for i in cembed.data]
 
     def cosine(a,b):
