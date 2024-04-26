@@ -9,6 +9,7 @@ function Chart() {
         axios.get('http://localhost:5001/data') // Adjust the URL/port as needed
             .then(response => {
                 setNumbers(response.data); // Set the fetched numbers to state
+                alert("Results are ready!");
 ;            })
             .catch(error => {
                 console.error('There was an error fetching the data:', error);
