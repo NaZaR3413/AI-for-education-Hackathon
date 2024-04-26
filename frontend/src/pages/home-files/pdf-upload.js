@@ -47,7 +47,7 @@ class Pdf extends Component {
       })
       .catch(error => {
         console.error("Error uploading file and text input:", error);
-        alert("nope, did not work");
+        //alert("nope, did not work");
         alert(error);
       });
   };
